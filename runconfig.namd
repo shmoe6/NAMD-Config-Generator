@@ -1,0 +1,77 @@
+# ----- input ----- #
+coordinates		solvate.pdb
+structure		solvate.psf
+parameters		param.prm
+paratypecharm		yes
+#bincoordinates		minimized.restart.coor
+#binvelocities		minimized.restart.vel
+
+# ----- output ----- #
+set output		output
+
+outputname		${output}
+dcdfile		${output}.dcd
+xstFile		${output}.xst
+dcdfreq		50
+xstFreq		50
+binaryoutput		yes
+binaryrestart		yes
+outputEnergies		50
+restartFreq		50
+
+# ----- Basic dynamics ----- #
+exclude		scaled1-4
+1-4scaling		1
+COMmotion		no
+dielectric		1.0
+
+# ----- Simulation space partitioning ----- #
+switching		on
+switchdist		9
+cutoff		10
+pairlistdist		11
+
+# ----- Multiple timestepping ----- #
+firsttimestep		0
+timestep		2.0
+stepspercycle		1
+
+# ----- Temperature control ----- #
+set temperature		310
+temperature		$temperature
+
+# ----- Langevin dynamics ----- #
+langevin		on
+langevinDamping		1
+langevinTemp		$temperature
+
+# ----- Periodic simulation ----- #
+PME		on
+PMEGridSizeX		102
+PMEGridSizeY		91
+PMEGridSizeZ		77
+
+useGroupPressure		yes
+
+LangevinPiston		on
+LangevinPistonTarget		1.02
+LangevinPistonPeriod		150
+LangevinPistonPeriod		150
+LangevinPistonDecay		90
+LangevinPistonTemp		$temperature
+
+# ----- Periodic boundary conditions ----- #
+cellBasisVector1		101.553 0 0
+cellBasisVector2		0 91.419 0
+cellBasisVector3		0 0 76.851
+cellOrigin		-11.878 -8.727 4.269
+
+wrapWater		on
+wrapNearest		off
+wrapAll		on
+
+# ----- Scripting ----- #
+minimize		1000
+reinitvels		$temperature
+run 50000
+END
