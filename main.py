@@ -8,6 +8,7 @@ frame.pack()
 
 END = -1
 
+
 # ----- Methods ----- #
 def maxMin(pdbfile: str, segment="all", residue="all", atomtype="all", firstatom="all", lastatom="all"):
     with open(pdbfile, 'r') as f:
@@ -52,11 +53,11 @@ def maxMin(pdbfile: str, segment="all", residue="all", atomtype="all", firstatom
            f'0 0 {zmax - zmin:.3f}', \
            f'{(xmax + xmin) / 2:.3f} {(ymax + ymin) / 2:.3f} {(zmax + zmin) / 2:.3f}'
 
+
 def generateConfig():
     print('button pressed')
 
     with open('runconfig.namd', 'w') as file:
-
         # input
         file.write('# ----- input ----- #\n')
         file.write(f'coordinates\t\t{coordinateFileInput.get()}\n')
@@ -145,6 +146,7 @@ def generateConfig():
 
         # END
         file.write('END')
+
 
 # ----- input ----- #
 inputFrame = tk.LabelFrame(frame, text="Input")
