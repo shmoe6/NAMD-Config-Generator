@@ -63,7 +63,7 @@ def generateConfig():
         file.write(f'coordinates\t\t{coordinateFileInput.get()}\n')
         file.write(f'structure\t\t{structureFileInput.get()}\n')
         file.write(f'parameters\t\t{parametersFileInput.get()}\n')
-        file.write(f'paratypecharm\t\t{paraTypeCharmmInput.get()}\n')
+        file.write(f'paratypecharmm\t\t{paraTypeCharmmInput.get()}\n')
         file.write(f'#bincoordinates\t\t{binCoordinatesInput.get()}\n')
         file.write(f'#binvelocities\t\t{binVelocitiesInput.get()}\n')
 
@@ -123,7 +123,6 @@ def generateConfig():
         file.write(f'useGroupPressure\t\t{groupPressureInput.get()}\n\n')
         file.write(f'LangevinPiston\t\t{langevinPistonInput.get()}\n')
         file.write(f'LangevinPistonTarget\t\t{targetPressureInput.get()}\n')
-        file.write(f'LangevinPistonPeriod\t\t{pistonPeriodInput.get()}\n')
         file.write(f'LangevinPistonPeriod\t\t{pistonPeriodInput.get()}\n')
         file.write(f'LangevinPistonDecay\t\t{pistonDecayInput.get()}\n')
         file.write(f'LangevinPistonTemp\t\t{pistonTempInput.get()}\n')
