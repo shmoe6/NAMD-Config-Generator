@@ -141,7 +141,7 @@ def generateConfig():
         file.write('\n# ----- Scripting ----- #\n')
         file.write(f'minimize\t\t{minimizeInput.get()}\n')
         file.write(f'reinitvels\t\t{reinitVelsInput.get()}\n')
-        file.write(f'run {runStepsInput.get()}\n')
+        file.write(f'run {runStepsInput.get()};\n')
 
         # END
         file.write('END')
